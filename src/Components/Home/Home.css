@@ -1,0 +1,13 @@
+.video {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 100px;
+  /* grid-row: 2 / span 1;
+  grid-column: 2 / span 1; */
+
+  
+}
+
+.title{
+  grid-column: 2 / span 1;
+}

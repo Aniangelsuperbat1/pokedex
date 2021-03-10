@@ -5,12 +5,14 @@ import About from "./Components/About/About";
 import Pokedex from "./Components/Pokedex/Pokedex";
 import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
 import PokemonType from "./Components/PokemonType/PokemonType";
+import PokemonTypes from "./Components/PokemonTypes/PokemonTypes";
+import "./App.css"
 
 function App() {
   return (
     <div>
       {/* <Home /> */}
-      <nav>
+      <nav className="navBar">
         <h1>
           <Link to="/">Home</Link>
         </h1>
@@ -30,11 +32,12 @@ function App() {
         <Route path="/pokemondetail" component={PokemonType}></Route>
         <Route path="/pokedex" component={Pokedex}></Route>
         <Route
-          exact
-          path="/pokmon/:name"
-          render={(routerProps) => {
-            <PokemonDetails match={routerProps.match} />;
-          }}
+          path="/pokemon/:name"
+          render={(routerProps) => <PokemonDetails match={routerProps.match} />}
+        />
+        <Route
+          path="/type/:name"
+          render={routerProps => <PokemonTypes match={routerProps.match} />}
         />
       </Switch>
     </div>

@@ -1,0 +1,7 @@
+.pokeType{
+    display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  align-items: center;
+   justify-content: center;
+}

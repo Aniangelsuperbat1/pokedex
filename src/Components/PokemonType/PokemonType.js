@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./PokemonType.css"
 
 const PokemonType = () => {
   const [pokeDetails, setPokeDetails] = useState([]);
@@ -15,10 +16,10 @@ const PokemonType = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pokeType">
       {pokeDetails.map((pokeDetail) => {
         return (
-          <Link to={`/pokemontype/${pokeDetail.name}`} key={pokeDetail.name}>
+          <Link to={`/type/${pokeDetail.name}`} key={pokeDetail.name}>
             <div>
               <div>
                 <h1>{pokeDetail.name}</h1>

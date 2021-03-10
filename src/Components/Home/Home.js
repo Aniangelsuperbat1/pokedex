@@ -12,6 +12,7 @@ const Home = () => {
           volume={.1}
           width={"640px"}
           height={"340px"}
+          controls={true}
         />
       </div>
     </div>

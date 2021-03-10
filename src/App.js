@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Pokedex from "./Components/Pokedex/Pokedex";
 import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
+import PokemonType from "./Components/PokemonType/PokemonType";
 
 function App() {
   return (
@@ -19,10 +20,14 @@ function App() {
         <h1>
           <Link to="/pokedex">Pokedex</Link>
         </h1>
+        <h1>
+          <Link to="/pokemondetail">Pokemon Types</Link>
+        </h1>
       </nav>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/about" component={About}></Route>
+        <Route path="/pokemondetail" component={PokemonType}></Route>
         <Route path="/pokedex" component={Pokedex}></Route>
         <Route
           exact

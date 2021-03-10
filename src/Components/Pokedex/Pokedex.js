@@ -11,25 +11,24 @@ const Pokedex = () => {
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res.results);
-        console.log(res.results);
       });
   }, []);
 
- return (
-   <section>
-     {pokemon.map((pokemon) => {
-       return (
-         <Link to={`/details/${pokemon.name}`}>
-           <div>
-             <div>
-               <h3>{pokemon.name}</h3>
-             </div>
-           </div>
-         </Link>
-       );
-     })}
-   </section>
- );
+  return (
+    <section>
+      {pokemon.map((pokemon) => {
+        return (
+          <Link to={`/pokmon/${pokemon.name}`} key={pokemon.name}>
+            <div>
+              <div>
+                <h1>{pokemon.name}</h1>
+              </div>
+            </div>
+          </Link>
+        );
+      })}
+    </section>
+  );
 };
 
 export default Pokedex;

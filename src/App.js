@@ -8,10 +8,9 @@ import Pokedex from "./Components/Pokedex/Pokedex"
 function App() {
   return (
     <div>
-       <Home />
-       <Route path="/about" component={About}></Route>
-       <Route path="/pokedex"component={Pokedex}></Route>
-       
+      <Home />
+      <Route path="/about" component={About}></Route>
+      <Route path="/pokedex" component={Pokedex}></Route>
     </div>
   );
 }

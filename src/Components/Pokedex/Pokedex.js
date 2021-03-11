@@ -5,7 +5,7 @@ import "./Pokedex.css"
 
 const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10";
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151";
 
   useEffect(() => {
     fetch(url)

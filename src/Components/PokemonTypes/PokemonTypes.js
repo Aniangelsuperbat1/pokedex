@@ -1,16 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./PokemonTypes.css";
 
 const PokemonTypes = ({ match }) => {
   const [type, setType] = useState([]);
-  const anotherUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.name}/`;
+  const anotherUrl = `https://pokeapi.co/api/v2/type/${match.params.name}/`;
 
   useEffect(() => {
-      fetch(anotherUrl)
-      .then(res => res.json())
-      .then(res => console.log(res))
-      .catch((error) => console.log(error))
-  })
+    fetch(anotherUrl)
+      .then((res) => res.json())
+      .then((res) => setType(res))
+      .catch((error) => console.log(error));
+  });
 
   if (!type) {
     return null;
@@ -18,7 +19,26 @@ const PokemonTypes = ({ match }) => {
 
   return (
     <div>
-      <h1>hello world</h1>
+      <div className="type">
+        <h1>Pokemon:</h1>
+        {type.pokemon
+          ? type.pokemon.map((pokemon) => {
+              return (
+                <div>
+                  <h3>{pokemon.pokemon.name}</h3>
+                </div>
+              );
+            })
+          : ""}
+      </div>
+      <div className="type">
+        <h1>Moves:</h1>
+        {type.moves
+          ? type.moves.map((move) => {
+              return <h3>{move.name}</h3>;
+            })
+          : ""}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .video {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 200px;
   grid-template-columns: 1fr 1fr 600px;
   grid-column: 2;
   grid-row: 2;

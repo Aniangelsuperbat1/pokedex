@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./PokemonDetails.css";
 
 const PokemonDetails = ({ match }) => {
-  const [details, setDetails] = useState({});
+  const [details, setDetails] = useState([]);
   const nextUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.name}/`;
 
   let pokes = () => {
@@ -10,26 +11,20 @@ const PokemonDetails = ({ match }) => {
       .then((res) => res.json())
       .then((res) => {
         setDetails(res);
-        console.log(res.abilities);
       });
   };
 
-  useEffect(async () => {
-    await pokes();
-  }, []);
-
-  // useEffect(() => {
-  //   // fetch(nextUrl)
-  //   //   .then((res) => res.json())
-  //   //   .then((res) => {
-  //   //     setDetails(res);
-  //   //     console.log(res.abilities)
-  //   //     // console.log(res.moves)
-  //   //     // console.log(res.moves.map((move) => move.move.name));
-  //   //     // console.log(res.sprites.other.dream_world.front_default);
-  //   //     // console.log(res.stats.map((stat) => stat.stat.name))
-  //   //   });
+  // useEffect(async () => {
+  //   await pokes();
   // }, []);
+
+  useEffect(() => {
+    fetch(nextUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        setDetails(res);
+      });
+  }, []);
 
   // if (!details) {
   //   return null;
@@ -38,16 +33,31 @@ const PokemonDetails = ({ match }) => {
   return (
     <>
       <div>
-        <h1>Moves:</h1>
-        {details.moves
-          ? details.moves.map((move) => {
-              return <h1>{move.move.name}</h1>;
+        {details.forms
+          ? details.forms.map((form) => {
+              return <h1>{form.name}</h1>;
             })
           : ""}
         <div>
-          {/* <img src={details.sprites.other.dream_world.front_default}/> */}
+          {details.sprites ? (
+            <img src={details.sprites.other.dream_world.front_default} />
+          ) : (
+            ""
+          )}
           <div>
-            {/* <h1>{details.stats.map((stat) => stat.stat.name)}</h1> */}
+            {details.stats
+              ? details.stats.map((detail) => {
+                  return <h1>{`${detail.stat.name} : ${detail.base_stat}`}</h1>;
+                })
+              : ""}
+          </div>
+          <div className="pokedex">
+            <h1>Moves:</h1>
+            {details.moves
+              ? details.moves.map((move) => {
+                  return <h1>{move.move.name}</h1>;
+                })
+              : ""}
           </div>
         </div>
       </div>

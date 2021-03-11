@@ -11,9 +11,7 @@ import "./App.css"
 
 function App() {
   return (
-    <div className="top">
-      {/* <img src="/pokemonfire.jpg"/> */}
-      {/* <Home /> */}
+    <div className="top"> 
       <nav className="navBar">
         <h1>
           <Link to="/">Home</Link>

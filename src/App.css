@@ -1,11 +1,17 @@
-
-/* .top{
-  background-image: url("/pokemonfire.jpg")
-} */
+.top{
+  /* background-image: url("./Pokemonkanto.jpg");  */
+  text-align: center;
+  /* position: fixed; */
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
 
 .navBar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  width:50%;
+  width: 50%;
   margin-left: 25%;
 }

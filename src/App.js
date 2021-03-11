@@ -11,7 +11,7 @@ import "./App.css"
 
 function App() {
   return (
-    <div className="top"> 
+    <div className="top">
       <nav className="navBar">
         <h1>
           <Link to="/">Home</Link>
@@ -37,7 +37,11 @@ function App() {
         />
         <Route
           path="/type/:name"
-          render={routerProps => <PokemonTypes match={routerProps.match} />}
+          render={(routerProps) => <PokemonTypes match={routerProps.match} />}
+        />
+        <Route
+          path="/type/:name"
+          render={(routerProps) => <PokemonTypes match={routerProps.match} />}
         />
       </Switch>
     </div>

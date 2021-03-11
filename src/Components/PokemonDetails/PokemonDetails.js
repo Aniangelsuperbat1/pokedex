@@ -55,7 +55,11 @@ const PokemonDetails = ({ match }) => {
             <h1>Moves:</h1>
             {details.moves
               ? details.moves.map((move) => {
-                  return <h1>{move.move.name}</h1>;
+                  return (
+                    <div className="silver">
+                      <h3>{move.move.name}</h3>
+                    </div>
+                  );
                 })
               : ""}
           </div>

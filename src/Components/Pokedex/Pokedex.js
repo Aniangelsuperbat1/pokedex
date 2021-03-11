@@ -21,7 +21,7 @@ const Pokedex = () => {
         return (
           <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
             <div>
-              <div>
+              <div className="gold">
                 <h1>{pokemon.name}</h1>
               </div>
             </div>

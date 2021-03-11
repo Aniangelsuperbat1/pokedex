@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import Pokedex from "./Components/Pokedex/Pokedex";
@@ -7,11 +7,13 @@ import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
 import PokemonType from "./Components/PokemonType/PokemonType";
 import PokemonTypes from "./Components/PokemonTypes/PokemonTypes";
 import "./App.css"
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 
 function App() {
   return (
     <div className="top">
+      <SearchBar />
       <nav className="navBar">
         <h1>
           <Link to="/">Home</Link>
@@ -40,8 +42,8 @@ function App() {
           render={(routerProps) => <PokemonTypes match={routerProps.match} />}
         />
         <Route
-          path="/type/:name"
-          render={(routerProps) => <PokemonTypes match={routerProps.match} />}
+          path="/type/:name/:nametype"
+          render={() => <Redirect to="/pokemon/:name" />}
         />
       </Switch>
     </div>

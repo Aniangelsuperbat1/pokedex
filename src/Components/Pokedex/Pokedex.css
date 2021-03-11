@@ -2,9 +2,34 @@
     display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  /* align-items: center; */
-}
+  align-items: center; }
 
 .gold{
   background-color: gold;
+}
+
+.paginationsBtns{
+  width: 80%; 
+  height: 40px;
+  list-style: none;
+  display: flex;
+}
+
+.paginationsBtns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid blue;
+  color: blue;
+  cursor: pointer;
+}
+
+.paginationsBtns a:hover {
+  color: white;
+  background-color: blue;
+}
+
+.paginationActive a {
+  color: White;
+  background-color: blue;
 }

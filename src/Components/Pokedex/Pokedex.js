@@ -1,11 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Pokedex.css"
+import "./Pokedex.css";
+import ReactPaginate from "react-paginate";
 
 const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151";
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118";
 
   useEffect(() => {
     fetch(url)
@@ -15,19 +18,42 @@ const Pokedex = () => {
       });
   }, []);
 
+  const usersPerPage = 50;
+  const pagesVisited = pageNumber * usersPerPage;
+  const pageCount = Math.ceil(pokemon.length / usersPerPage);
+
+  const displayUsers = pokemon
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((pokemon) => {
+      return (
+        <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
+          <div>
+            <div className="gold">
+              <h1>{pokemon.name}</h1>
+            </div>
+          </div>
+        </Link>
+      );
+    });
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
     <section className="pokeNames">
-      {pokemon.map((pokemon) => {
-        return (
-          <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
-            <div>
-              <div className="gold">
-                <h1>{pokemon.name}</h1>
-              </div>
-            </div>
-          </Link>
-        );
-      })}
+      {displayUsers}
+      <ReactPaginate
+        previousLabel="prev"
+        nextLabel="next"
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationsBtns"}
+        previousLinkClassName={"previousBtn"}
+        nextLinkClassName={"nextBtn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
     </section>
   );
 };

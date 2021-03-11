@@ -22,7 +22,7 @@ const PokemonDetails = ({ match }) => {
     fetch(nextUrl)
       .then((res) => res.json())
       .then((res) => {
-        setDetails(res);
+        setDetails(res); 
       });
   }, []);
 

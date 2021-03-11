@@ -8,9 +8,11 @@ import PokemonType from "./Components/PokemonType/PokemonType";
 import PokemonTypes from "./Components/PokemonTypes/PokemonTypes";
 import "./App.css"
 
+
 function App() {
   return (
-    <div>
+    <div className="top">
+      {/* <img src="/pokemonfire.jpg"/> */}
       {/* <Home /> */}
       <nav className="navBar">
         <h1>

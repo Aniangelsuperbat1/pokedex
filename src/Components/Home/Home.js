@@ -6,13 +6,11 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="video">
-      <div >
-        <div className="title">
-          <h1>Welcome to the Wonderful World of Pokemon!</h1>
-        </div>
+      <div>
+        <h1 className="title">Welcome to the Wonderful World of Pokemon!</h1>
         <ReactPlayer
           url="https://www.youtube.com/watch?v=rg6CiPI6h2g"
-          volume={.1}
+          volume={0.1}
           width={"640px"}
           height={"340px"}
           controls={true}

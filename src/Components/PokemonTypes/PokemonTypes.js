@@ -26,7 +26,7 @@ const PokemonTypes = ({ match }) => {
           ? type.pokemon.map((pokemon) => {
               return (
                 <div className="poketype">
-                  <Link>
+                  <Link to={`/pokemon/${pokemon.pokemon.name}`}>
                     <h3>{pokemon.pokemon.name}</h3>
                   </Link>
                 </div>

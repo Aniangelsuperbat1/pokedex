@@ -22,13 +22,13 @@ function App() {
           <Link to="/pokedex">Pokedex</Link>
         </h1>
         <h1>
-          <Link to="/pokemondetail">Pokemon Types</Link>
+          <Link to="/pokemontype">Pokemon Types</Link>
         </h1>
       </nav>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/about" component={About}></Route>
-        <Route path="/pokemondetail" component={PokemonType}></Route>
+        <Route path="/pokemontype" component={PokemonType}></Route>
         <Route path="/pokedex" component={Pokedex}></Route>
         <Route
           path="/pokemon/:name"
@@ -38,10 +38,10 @@ function App() {
           path="/type/:name"
           render={(routerProps) => <PokemonTypes match={routerProps.match} />}
         />
-        <Route
+        {/* <Route
           path="/type/:name/:nametype"
           render={() => <Redirect to="/pokemon/:name" />}
-        />
+        /> */}
       </Switch>
     </div>
   );

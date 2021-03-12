@@ -21,7 +21,7 @@ const PokemonType = () => {
         return (
           <Link to={`/type/${pokeDetail.name}`} key={pokeDetail.name}>
             <div>
-              <div>
+              <div className="silver">
                 <h1>{pokeDetail.name}</h1>
               </div>
             </div>

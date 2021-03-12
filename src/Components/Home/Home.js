@@ -12,11 +12,11 @@ const Home = () => {
       <div>
         <iframe
           title="pokemon theme song"
-          frameborder="0"
+          frameBorder="0"
           width="640"
           height="400"
           src="https://www.youtube.com/embed/rg6CiPI6h2g"
-          allowfullscreen="allowfullscreen"
+          allowFullScreen="allowfullscreen"
         ></iframe>
       </div>
     </div>

@@ -18,12 +18,31 @@ const Pokedex = () => {
       });
   }, []);
 
-  const usersPerPage = 50;
+  const usersPerPage = 100;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
 
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const clear = () => {
+    setValue("");
+  };
+
+  const display = value.length > 0;
+
   const displayUsers = pokemon
     .slice(pagesVisited, pagesVisited + usersPerPage)
+    .filter((val) => {
+      if (value === "") {
+        return val;
+      } else if (val.name.includes(value)) {
+        return val;
+      }
+    })
     .map((pokemon) => {
       return (
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
@@ -42,6 +61,13 @@ const Pokedex = () => {
 
   return (
     <section className="pokeNames">
+      <input
+        type="text"
+        value={value}
+        placeholder="Search"
+        onChange={handleChange}
+      />
+      {display && <button onClick={clear}>Clear</button>}
       {displayUsers}
       <ReactPaginate
         previousLabel="prev"

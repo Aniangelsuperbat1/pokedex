@@ -7,13 +7,10 @@ import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
 import PokemonType from "./Components/PokemonType/PokemonType";
 import PokemonTypes from "./Components/PokemonTypes/PokemonTypes";
 import "./App.css"
-import SearchBar from "./Components/SearchBar/SearchBar";
-
 
 function App() {
   return (
     <div className="top">
-      <SearchBar />
       <nav className="navBar">
         <h1>
           <Link to="/">Home</Link>

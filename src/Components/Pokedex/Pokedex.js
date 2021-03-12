@@ -18,7 +18,7 @@ const Pokedex = () => {
       });
   }, []);
 
-  const usersPerPage = 100;
+  const usersPerPage = 80;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
 

@@ -16,7 +16,7 @@ function App() {
           <Link to="/">Home</Link>
         </h1>
         <h1>
-          <Link to="/about">About</Link>
+          <Link className="link"to="/about">About</Link>
         </h1>
         <h1>
           <Link to="/pokedex">Pokedex</Link>

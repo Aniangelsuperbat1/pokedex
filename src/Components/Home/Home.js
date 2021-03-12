@@ -4,19 +4,20 @@ import React from "react";
 import "./Home.css";
 
 const Home = () => {
+  const style ={fontSize: 45}
   return (
     <div className="body">
       <div>
-        <h1>Welcome to the Wonderful World of Pokemon!</h1>
+        <h1 style={style}><b>Welcome to the Wonderful World of Pokemon!</b></h1>
       </div>
       <div>
         <iframe
           title="pokemon theme song"
-          frameBorder="0"
+          frameborder="0"
           width="640"
           height="400"
           src="https://www.youtube.com/embed/rg6CiPI6h2g"
-          allowFullScreen="allowfullscreen"
+          allowfullscreen="allowfullscreen"
         ></iframe>
       </div>
     </div>

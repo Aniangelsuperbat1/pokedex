@@ -1,34 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./PokemonDetails.css";
+// import axios from "axios"
 
 const PokemonDetails = ({ match }) => {
   const [details, setDetails] = useState([]);
+  const [loading, setLoading] = useState(false);
   const nextUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.name}/`;
-
-  let pokes = () => {
-    fetch(nextUrl)
-      .then((res) => res.json())
-      .then((res) => {
-        setDetails(res);
-      });
-  };
-
-  // useEffect(async () => {
-  //   await pokes();
-  // }, []);
 
   useEffect(() => {
     fetch(nextUrl)
       .then((res) => res.json())
       .then((res) => {
-        setDetails(res); 
+        setDetails(res);
       });
   }, []);
-
-  // if (!details) {
-  //   return null;
-  // }
 
   return (
     <>
@@ -40,7 +26,7 @@ const PokemonDetails = ({ match }) => {
           : ""}
         <div>
           {details.sprites ? (
-            <img src={details.sprites.other.dream_world.front_default} />
+            <img src={details.sprites.other["official-artwork"].front_default} />
           ) : (
             ""
           )}

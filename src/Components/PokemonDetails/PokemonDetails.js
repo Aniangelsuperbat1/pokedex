@@ -19,6 +19,7 @@ const PokemonDetails = ({ match }) => {
   return (
     <>
       <div>
+        <h1>{`Pokemon # ${details.id}`}</h1>
         {details.forms
           ? details.forms.map((form) => {
               return <h1>{form.name}</h1>;
@@ -26,7 +27,9 @@ const PokemonDetails = ({ match }) => {
           : ""}
         <div>
           {details.sprites ? (
-            <img src={details.sprites.other["official-artwork"].front_default} />
+            <img
+              src={details.sprites.other["official-artwork"].front_default}
+            />
           ) : (
             ""
           )}
@@ -34,6 +37,16 @@ const PokemonDetails = ({ match }) => {
             {details.stats
               ? details.stats.map((detail) => {
                   return <h1>{`${detail.stat.name} : ${detail.base_stat}`}</h1>;
+                })
+              : ""}
+            <h1>Type:</h1>
+            {details.types
+              ? details.types.map((type) => {
+                  return (
+                    <div>
+                      <h1>{type.type.name.toUpperCase()}</h1>
+                    </div>
+                  );
                 })
               : ""}
           </div>

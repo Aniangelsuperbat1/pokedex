@@ -7,7 +7,8 @@ import ReactPaginate from "react-paginate";
 const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-
+  const [value, setValue] = useState("");
+  
   const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118";
 
   useEffect(() => {
@@ -21,8 +22,6 @@ const Pokedex = () => {
   const usersPerPage = 80;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
-
-  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -66,11 +65,13 @@ const Pokedex = () => {
     padding: "0.5rem",
     margin: "20px",
     textcolor: "white",
+    
   };
 
   return (
     <section>
       <input
+
         style={BarStyling}
         type="text"
         value={value}

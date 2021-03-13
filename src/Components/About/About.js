@@ -9,7 +9,14 @@ const About = () => {
       <main className="pokemon">
         <h1>
           Pokemon have protected the world from evil for time in immemorial. Do
-          you believe you have what it takes to be a pokemon Master?!
+          you believe you have what it takes to be a pokemon Master?! Then you
+          have come to the right place! It is here where you will find all the
+          tools and resources you will ever need to become THE champion. Sun Tzu
+          once said, “If you know the enemy and know yourself, you need not fear
+          the result of a hundred battles. If you know yourself but not the
+          enemy, for every victory gained you will also suffer a defeat. If you
+          know neither the enemy nor yourself, you will succumb in every
+          battle.”
         </h1>
         <img src={logo} alt="buffash" />
         <img src={holytrin} alt="holytrin" />

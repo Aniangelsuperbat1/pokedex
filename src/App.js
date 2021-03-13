@@ -38,10 +38,6 @@ function App() {
           path="/type/:name"
           render={(routerProps) => <PokemonTypes match={routerProps.match} />}
         />
-        {/* <Route
-          path="/type/:name/:nametype"
-          render={() => <Redirect to="/pokemon/:name" />}
-        /> */}
       </Switch>
     </div>
   );

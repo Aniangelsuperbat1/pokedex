@@ -60,7 +60,7 @@ const Pokedex = () => {
   };
 
   return (
-    <section className="pokeNames">
+    <section>
       <input
         type="text"
         value={value}
@@ -68,7 +68,8 @@ const Pokedex = () => {
         onChange={handleChange}
       />
       {display && <button onClick={clear}>Clear</button>}
-      {displayUsers}
+      <div className="pokeNames">
+        {displayUsers}
       <ReactPaginate
         previousLabel="prev"
         nextLabel="next"
@@ -80,6 +81,8 @@ const Pokedex = () => {
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />
+      </div>
+      
     </section>
   );
 };

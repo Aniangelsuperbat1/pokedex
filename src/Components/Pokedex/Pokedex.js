@@ -59,30 +59,40 @@ const Pokedex = () => {
     setPageNumber(selected);
   };
 
+  const BarStyling = {
+    width: "20rem",
+    background: "#F2F1F9",
+    border: "none",
+    padding: "0.5rem",
+    margin: "20px",
+    textcolor: "white",
+  };
+
   return (
     <section>
       <input
+        style={BarStyling}
         type="text"
         value={value}
         placeholder="Search"
+        results="0"
         onChange={handleChange}
       />
       {display && <button onClick={clear}>Clear</button>}
       <div className="pokeNames">
         {displayUsers}
-      <ReactPaginate
-        previousLabel="prev"
-        nextLabel="next"
-        pageCount={pageCount}
-        onPageChange={changePage}
-        containerClassName={"paginationsBtns"}
-        previousLinkClassName={"previousBtn"}
-        nextLinkClassName={"nextBtn"}
-        disabledClassName={"paginationDisabled"}
-        activeClassName={"paginationActive"}
-      />
+        <ReactPaginate
+          previousLabel="prev"
+          nextLabel="next"
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"paginationsBtns"}
+          previousLinkClassName={"previousBtn"}
+          nextLinkClassName={"nextBtn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        />
       </div>
-      
     </section>
   );
 };

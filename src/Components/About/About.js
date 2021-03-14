@@ -13,7 +13,7 @@ const About = () => {
           have come to the right place! It is here where you will find all the
           tools and resources you will ever need to become THE champion. Sun Tzu
           once said, “If you know the enemy and know yourself, you need not fear
-          the result of a hundred battles.
+          the result of a hundred battles. Your Journey will be long but fortune favors the bold! Now go! Adventrure waits for no one!
         </h1>
         <img src={logo} alt="buffash" />
         <img src={holytrin} alt="holytrin" />

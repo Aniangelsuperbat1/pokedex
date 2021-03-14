@@ -37,3 +37,18 @@
   color: White;
   background-color: blue;
 }
+
+.search{
+  padding: 10px
+}
+
+.searchIcon{
+  align-self: flex-end;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.input{
+  width: 200px;
+  margin: 5px
+} 

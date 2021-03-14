@@ -12,13 +12,14 @@ const Pokedex = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [value, setValue] = useState("");
 
-  const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1118";
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=1118";
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res.results);
+        console.log(pokemon)
       });
   }, []);
 
@@ -45,11 +46,17 @@ const Pokedex = () => {
         return val;
       }
     })
-    .map((pokemon) => {
+    .map((pokemon, index) => {
       return (
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
           <div>
             <div className="gold">
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                  index + 1
+                }.png`}
+                alt=""
+              />
               <h1>{pokemon.name}</h1>
             </div>
           </div>

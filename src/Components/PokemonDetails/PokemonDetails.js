@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./PokemonDetails.css";
 // import axios from "axios"
+import logo from "./slowpoke.gif"
 
 const PokemonDetails = ({ match }) => {
   const [details, setDetails] = useState([]);
@@ -9,17 +10,21 @@ const PokemonDetails = ({ match }) => {
   const nextUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.name}/`;
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(nextUrl)
       .then((res) => res.json())
       .then((res) => {
         setDetails(res);
-        setLoading(false)
+        setLoading(false);
       });
   }, []);
 
-  if(loading && details.length === 0){
-    return <h1>Loading...</h1>
+  if (loading && details.length === 0) {
+    return (
+      <div>
+        <img src={logo} alt="loading" />
+      </div>
+    );
   }
 
   return (

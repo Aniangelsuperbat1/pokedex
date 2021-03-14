@@ -18,7 +18,6 @@ const Pokedex = () => {
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res.results);
-        console.log(pokemon);
       });
   }, []);
 
@@ -76,7 +75,6 @@ const Pokedex = () => {
   //     margin: "20px",
   //     textcolor: "white",
   // };
-
   return (
     <section>
       {/* <input

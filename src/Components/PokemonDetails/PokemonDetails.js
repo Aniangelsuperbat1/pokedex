@@ -22,6 +22,7 @@ const PokemonDetails = ({ match }) => {
   if (loading && details.length === 0) {
     return (
       <div>
+        <h1>LOADING...</h1>
         <img src={logo} alt="loading" />
       </div>
     );

@@ -1,17 +1,15 @@
-.type{
+.type {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-
 }
 
-.poketype{
-     background: red;
+.poketype {
+  background: red;
   color: white;
 }
 
-.move{
-    background: blue;
-    color: white;
-    
+.move {
+  background: blue;
+  color: white;
 }

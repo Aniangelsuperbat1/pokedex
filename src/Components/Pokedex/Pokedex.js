@@ -5,7 +5,6 @@ import "./Pokedex.css";
 import ReactPaginate from "react-paginate";
 import SearchIcon from "@material-ui/icons/Search";
 import { TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
 const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -57,7 +56,8 @@ const Pokedex = () => {
                 }.png`}
                 alt=""
               />
-              <h1>{pokemon.name}</h1>
+              <h1>{`${index + 1}. ${pokemon.name}`}</h1>
+              {/* <h1>{pokemon.name}</h1> */}
             </div>
           </div>
         </Link>

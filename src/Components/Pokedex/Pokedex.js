@@ -19,11 +19,11 @@ const Pokedex = () => {
       .then((res) => res.json())
       .then((res) => {
         setPokemon(res.results);
-        console.log(pokemon)
+        console.log(pokemon);
       });
   }, []);
 
-  const usersPerPage = 80;
+  const usersPerPage = 151;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
 

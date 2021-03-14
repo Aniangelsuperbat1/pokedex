@@ -9,12 +9,18 @@ const PokemonDetails = ({ match }) => {
   const nextUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.name}/`;
 
   useEffect(() => {
+    setLoading(true)
     fetch(nextUrl)
       .then((res) => res.json())
       .then((res) => {
         setDetails(res);
+        setLoading(false)
       });
   }, []);
+
+  if(loading && details.length === 0){
+    return <h1>Loading...</h1>
+  }
 
   return (
     <>

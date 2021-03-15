@@ -21,7 +21,7 @@ const Pokedex = () => {
       });
   }, []);
 
-  const usersPerPage = 151;
+  const usersPerPage = 50;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
 
@@ -49,20 +49,35 @@ const Pokedex = () => {
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
           <div>
             <div className="gold">
-              {/* <img
+              <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                   index + 1
                 }.png`}
                 alt="pokemon"
-              /> */}
-              {/* <img
-                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${
-                  index + 1
-                }.png`}
-                alt="pokemon"
-              /> */}
-              {/* <h1>{`${index + 1}. ${pokemon.name}`}</h1> */}
-              <h1>{pokemon.name}</h1>
+              />
+              {index + 1 < 10 ? 
+                <img
+                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/00${
+                    index + 1
+                  }.png`}
+                  alt="pokemon"
+                />
+               : index + 1 < 100 ? 
+                <img
+                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/0${
+                    index + 1
+                  }.png`}
+                  alt="pokemon"
+                />
+               : 
+                <img
+                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${
+                    index + 1
+                  }.png`}
+                  alt="pokemon"
+                />
+              }
+              <h1>{`${index + 1}. ${pokemon.name}`}</h1>
             </div>
           </div>
         </Link>

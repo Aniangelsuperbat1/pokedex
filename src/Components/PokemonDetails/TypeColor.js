@@ -21,7 +21,7 @@ const typeColors = {
 
   ghost: "#7b62a3",
 
-  steel: "#9eb7b",
+  steel: "lightblue",
 
   water: "#4592c4",
 

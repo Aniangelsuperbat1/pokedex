@@ -22,6 +22,9 @@ React, JavaScript, https://pokeapi.co/
 
 ![React App - Google Chrome 3_12_2021 1_55_47 PM](https://user-images.githubusercontent.com/47430018/110990770-c66bd280-8341-11eb-9b5c-728504ab991d.png)
 
+![PokeDex - Google Chrome 3_15_2021 7_09_59 PM](https://user-images.githubusercontent.com/47430018/111232810-3d170300-85c2-11eb-9875-b2118c1e6bb3.png)
+
+
 ![PokeDex - Google Chrome 3_12_2021 2_47_56 PM](https://user-images.githubusercontent.com/47430018/110990915-f6b37100-8341-11eb-8970-a4dc6484862e.png)
 
 ### Installation Instructions

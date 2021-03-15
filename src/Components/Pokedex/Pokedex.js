@@ -10,6 +10,7 @@ const Pokedex = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [value, setValue] = useState("");
+  const [page, setPage] = useState()
 
   const url = "https://pokeapi.co/api/v2/pokemon?limit=1118";
 
@@ -21,7 +22,7 @@ const Pokedex = () => {
       });
   }, []);
 
-  const usersPerPage = 50;
+  const usersPerPage = 100;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(pokemon.length / usersPerPage);
 
@@ -77,7 +78,8 @@ const Pokedex = () => {
                   alt="pokemon"
                 />
               }
-              <h1>{`${index + 1}. ${pokemon.name}`}</h1>
+               <h1>{`${index + 1}. ${pokemon.name}`}</h1>
+              {/* <h1>{pokemon.name}</h1> */}
             </div>
           </div>
         </Link>

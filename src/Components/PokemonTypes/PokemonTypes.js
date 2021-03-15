@@ -23,10 +23,17 @@ const PokemonTypes = ({ match }) => {
       <div className="type">
         <h1>Pokemon:</h1>
         {type.pokemon
-          ? type.pokemon.map((pokemon) => {
+          ? type.pokemon.map((pokemon, index) => {
               return (
                 <div className="poketype">
                   <Link to={`/pokemon/${pokemon.pokemon.name}`}>
+                    {/* <img
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                        index + 1
+                      }.png`}
+                      alt="pokemon"
+                    /> */}
+                    {/* <h3>{`${index + 1}. ${pokemon.pokemon.name}`}</h3> */}
                     <h3>{pokemon.pokemon.name}</h3>
                   </Link>
                 </div>

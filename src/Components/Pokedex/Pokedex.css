@@ -9,7 +9,7 @@
 }
 
 .poke.hover-zoom:hover{
-  transform: scale(1.25);
+  transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
 .paginationsBtns{

@@ -5,6 +5,7 @@
 }
 
 .poketype {
+  margin: 10px;
   background: red;
   color: white;
 }

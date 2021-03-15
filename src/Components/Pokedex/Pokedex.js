@@ -49,14 +49,20 @@ const Pokedex = () => {
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
           <div>
             <div className="gold">
-              <img
+              {/* <img
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                   index + 1
                 }.png`}
-                alt=""
-              />
-              <h1>{`${index + 1}. ${pokemon.name}`}</h1>
-              {/* <h1>{pokemon.name}</h1> */}
+                alt="pokemon"
+              /> */}
+              {/* <img
+                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${
+                  index + 1
+                }.png`}
+                alt="pokemon"
+              /> */}
+              {/* <h1>{`${index + 1}. ${pokemon.name}`}</h1> */}
+              <h1>{pokemon.name}</h1>
             </div>
           </div>
         </Link>

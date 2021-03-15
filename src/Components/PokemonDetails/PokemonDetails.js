@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./PokemonDetails.css";
 // import axios from "axios"
-import logo from "./slowpoke.gif"
+import logo from "./slowpoke.gif";
+import typeColors from "./TypeColor";
 
 const PokemonDetails = ({ match }) => {
   const [details, setDetails] = useState([]);
@@ -55,8 +56,15 @@ const PokemonDetails = ({ match }) => {
             {details.types
               ? details.types.map((type) => {
                   return (
-                    <div>
-                      <h1>{type.type.name.toUpperCase()}</h1>
+                    <div className="newtype">
+                      <h1
+                        className="dataType"
+                        style={{
+                          backgroundColor: typeColors[type.type.name],
+                        }}
+                      >
+                        {type.type.name.toUpperCase()}
+                      </h1>
                     </div>
                   );
                 })

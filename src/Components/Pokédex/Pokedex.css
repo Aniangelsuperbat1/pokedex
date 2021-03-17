@@ -2,7 +2,9 @@
     display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-items: center; }
+  align-items: center; 
+  background: rgb(105,105,105, 1)
+}
 
 .gold{
   background-color: gold;
@@ -39,7 +41,8 @@
 }
 
 .search{
-  padding: 10px
+  padding: 10px;
+  /* background: rgb(105,105,105, 1) */
 }
 
 .searchIcon{

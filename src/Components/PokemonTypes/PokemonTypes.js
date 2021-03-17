@@ -2,9 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./PokemonTypes.css";
 import { Link } from "react-router-dom";
+import logo from "./Pikachuwalking.gif"
 
 const PokemonTypes = ({ match }) => {
-  const [type, setType] = useState([]);
+  const [type, setType] = useState("");
   const anotherUrl = `https://pokeapi.co/api/v2/type/${match.params.name}/`;
 
   useEffect(() => {
@@ -15,13 +16,18 @@ const PokemonTypes = ({ match }) => {
   });
 
   if (!type) {
-    return null;
+    return (
+      <div>
+        <h1>LOADING...</h1>
+        <img src={logo} alt="loading" />
+      </div>
+    );
   }
 
   return (
     <div>
       <div className="type">
-        <h1>Pokemon:</h1>
+        <h1>Pokémon:</h1>
         {type.pokemon
           ? type.pokemon.map((pokemon, index) => {
               return (
@@ -50,7 +56,7 @@ const PokemonTypes = ({ match }) => {
           ? type.moves.map((move) => {
               return (
                 <div className="move">
-                  <h3 >{move.name}</h3>
+                  <h3>{move.name}</h3>
                 </div>
               );
             })

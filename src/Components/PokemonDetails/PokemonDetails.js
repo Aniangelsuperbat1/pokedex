@@ -29,6 +29,10 @@ const PokemonDetails = ({ match }) => {
     );
   }
 
+  // if(!details){
+  //   return <h1>...Loading</h1>
+  // }
+
   return (
     <>
       <div>

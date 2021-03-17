@@ -6,7 +6,14 @@ import logo from "./Pikachuwalking.gif"
 
 const PokemonTypes = ({ match }) => {
   const [type, setType] = useState("");
+  const limit = 1118;
+  const usersPerPage = 100;
+  const [pageNumber, setPageNumber] = useState(0);
+  const pagesVisited = pageNumber * usersPerPage;
+  let pageCount = 0;
+
   const anotherUrl = `https://pokeapi.co/api/v2/type/${match.params.name}/`;
+
 
   useEffect(() => {
     fetch(anotherUrl)
@@ -14,7 +21,7 @@ const PokemonTypes = ({ match }) => {
       .then((res) => setType(res))
       .catch((error) => console.log(error));
   });
-
+  
   if (!type) {
     return (
       <div>
@@ -29,18 +36,25 @@ const PokemonTypes = ({ match }) => {
       <div className="type">
         <h1>Pokémon:</h1>
         {type.pokemon
-          ? type.pokemon.map((pokemon, index) => {
+          ? type.pokemon.map((pokemon) => {
+            let pokeId = pokemon.pokemon.url.split("/");
+            let pokeIdLength = pokeId.length;
+            let num = pokeId[pokeIdLength - 2];
+            // pageCount = Math.ceil(limit / usersPerPage);
+            let paddedNum = num.padStart(3, "0");
               return (
                 <div className="poketype">
                   <Link to={`/pokemon/${pokemon.pokemon.name}`}>
-                    {/* <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                        index + 1
-                      }.png`}
-                      alt="pokemon"
-                    /> */}
-                    {/* <h3>{`${index + 1}. ${pokemon.pokemon.name}`}</h3> */}
                     <h3>{pokemon.pokemon.name}</h3>
+                    <img
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`}
+                      alt="pokemon"
+                    />
+                    <img
+                      src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
+                      alt="pokemon"
+                    />
+                    <h1>{`${num}. ${pokemon.pokemon.name}`}</h1>
                   </Link>
                 </div>
               );

@@ -10,7 +10,7 @@ const Pokédex = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [value, setValue] = useState("");
-  const [page, setPage] = useState();
+  // const [page, setPage] = useState();
 
   const limit = 1118;
   const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
@@ -50,7 +50,6 @@ const Pokédex = () => {
     .map((pokemon) => {
       let pokeId = pokemon.url.split("/")
       let pokeIdLength = pokeId.length
-      // let num = pagesVisited + index + 1
       let num = pokeId[pokeIdLength - 2]
       pageCount = Math.ceil(limit / usersPerPage);
       let paddedNum = num.padStart(3, "0");
@@ -63,7 +62,6 @@ const Pokédex = () => {
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`}
                 alt="pokemon"
               />
-              <p>{pageCount}</p>
                 <img
                   src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
                   alt="pokemon"

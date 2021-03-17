@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./PokemonTypes.css";
 import { Link } from "react-router-dom";
 import logo from "./Pikachuwalking.gif"
+import typeColors from "../PokemonDetails/TypeColor"
 
 const PokemonTypes = ({ match }) => {
   const [type, setType] = useState("");
@@ -33,28 +34,37 @@ const PokemonTypes = ({ match }) => {
 
   return (
     <div>
-      <div className="type">
+      <div
+        className="type"
+        style={{
+          backgroundColor: typeColors[type.name],
+        }}
+      >
         <h1>Pokémon:</h1>
         {type.pokemon
           ? type.pokemon.map((pokemon) => {
-            let pokeId = pokemon.pokemon.url.split("/");
-            let pokeIdLength = pokeId.length;
-            let num = pokeId[pokeIdLength - 2];
-            // pageCount = Math.ceil(limit / usersPerPage);
-            let paddedNum = num.padStart(3, "0");
+              let pokeId = pokemon.pokemon.url.split("/");
+              let pokeIdLength = pokeId.length;
+              let num = pokeId[pokeIdLength - 2];
+              pageCount = Math.ceil(limit / usersPerPage);
+              let paddedNum = num.padStart(3, "0");
               return (
                 <div className="poketype">
                   <Link to={`/pokemon/${pokemon.pokemon.name}`}>
-                    <h3>{pokemon.pokemon.name}</h3>
-                    <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`}
-                      alt="pokemon"
-                    />
-                    <img
-                      src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
-                      alt="pokemon"
-                    />
-                    <h1>{`${num}. ${pokemon.pokemon.name}`}</h1>
+                    <div>
+                      <div>
+                        <img
+                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`}
+                          alt="pokemon"
+                        />
+                        <img
+                          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
+                          alt="pokemon"
+                        />
+                        <h1>{`${num}. ${pokemon.pokemon.name}`}</h1>
+                        {/* <h1>{pokemon.name}</h1> */}
+                      </div>
+                    </div>
                   </Link>
                 </div>
               );

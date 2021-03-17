@@ -47,11 +47,14 @@ const Pokédex = () => {
       }
     })
     .slice(pagesVisited, pagesVisited + usersPerPage)
-    .map((pokemon, index) => {
-      console.log(pokemon[0])
-      let num = pagesVisited + index + 1
+    .map((pokemon) => {
+      let pokeId = pokemon.url.split("/")
+      let pokeIdLength = pokeId.length
+      // let num = pagesVisited + index + 1
+      let num = pokeId[pokeIdLength - 2]
       pageCount = Math.ceil(limit / usersPerPage);
-      let paddedNum = num.toString().padStart(3, "0");
+      let paddedNum = num.padStart(3, "0");
+
       return (
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
           <div>
@@ -61,22 +64,10 @@ const Pokédex = () => {
                 alt="pokemon"
               />
               <p>{pageCount}</p>
-              {index + 1 < 10 ? (
                 <img
                   src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
                   alt="pokemon"
                 />
-              ) : index + 1 < 100 ? (
-                <img
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
-                  alt="pokemon"
-                />
-              ) : (
-                <img
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
-                  alt="pokemon"
-                />
-              )}
               <h1>{`${num}. ${pokemon.name}`}</h1>
               {/* <h1>{pokemon.name}</h1> */}
             </div>

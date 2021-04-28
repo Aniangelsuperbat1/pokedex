@@ -6,14 +6,15 @@ import ReactPaginate from "react-paginate";
 import SearchIcon from "@material-ui/icons/Search";
 import { TextField } from "@material-ui/core";
 
-const Pokedex = () => {
+const Pokédex = () => {
   const [pokemon, setPokemon] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [value, setValue] = useState("");
-  const [page, setPage] = useState()
+  // const [page, setPage] = useState();
 
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=1118";
-
+  const limit = 1118;
+  const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
+  
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -24,10 +25,11 @@ const Pokedex = () => {
 
   const usersPerPage = 100;
   const pagesVisited = pageNumber * usersPerPage;
-  const pageCount = Math.ceil(pokemon.length / usersPerPage);
+  let pageCount = 0
 
   const handleChange = (e) => {
     setValue(e.target.value);
+    setPageNumber(0)
   };
 
   const clear = () => {
@@ -37,7 +39,6 @@ const Pokedex = () => {
   const display = value.length > 0;
 
   const displayUsers = pokemon
-    .slice(pagesVisited, pagesVisited + usersPerPage)
     .filter((val) => {
       if (value === "") {
         return val;
@@ -45,40 +46,27 @@ const Pokedex = () => {
         return val;
       }
     })
-    .map((pokemon, index) => {
+    .slice(pagesVisited, pagesVisited + usersPerPage)
+    .map((pokemon) => {
+      let pokeId = pokemon.url.split("/")
+      let pokeIdLength = pokeId.length
+      let num = pokeId[pokeIdLength - 2]
+      pageCount = Math.ceil(limit / usersPerPage);
+      let paddedNum = num.padStart(3, "0");
+
       return (
         <Link to={`/pokemon/${pokemon.name}`} key={pokemon.name}>
           <div>
             <div className="gold">
               <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                  index + 1
-                }.png`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`}
                 alt="pokemon"
               />
-              {index + 1 < 10 ? 
                 <img
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/00${
-                    index + 1
-                  }.png`}
+                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedNum}.png`}
                   alt="pokemon"
                 />
-               : index + 1 < 100 ? 
-                <img
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/0${
-                    index + 1
-                  }.png`}
-                  alt="pokemon"
-                />
-               : 
-                <img
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${
-                    index + 1
-                  }.png`}
-                  alt="pokemon"
-                />
-              }
-               <h1>{`${index + 1}. ${pokemon.name}`}</h1>
+              <h1>{`${num}. ${pokemon.name}`}</h1>
               {/* <h1>{pokemon.name}</h1> */}
             </div>
           </div>
@@ -112,7 +100,7 @@ const Pokedex = () => {
         <SearchIcon className="searchIcon" />
         <TextField
           value={value}
-          placeholder="Search Pokemon"
+          placeholder="Search Pokémon"
           className="input"
           // label="Pokemon"
           variant="standard"
@@ -138,4 +126,4 @@ const Pokedex = () => {
   );
 };
 
-export default Pokedex;
+export default Pokédex;

@@ -8,7 +8,9 @@ const Home = () => {
   return (
     <div className="body">
       <div>
-        <h1 style={style}><b>Welcome to the Wonderful World of Pokemon!</b></h1>
+        <h1 style={style}>
+          <b>Welcome to the Wonderful World of Pokémon!</b>
+        </h1>
       </div>
       <div>
         <iframe

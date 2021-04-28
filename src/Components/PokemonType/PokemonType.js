@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PokemonType.css"
+import typeColors from "../PokemonDetails/TypeColor"
 
 const PokemonType = () => {
   const [pokeDetails, setPokeDetails] = useState([]);
@@ -22,7 +23,13 @@ const PokemonType = () => {
           <Link to={`/type/${pokeDetail.name}`} key={pokeDetail.name}>
             <div>
               <div className="silver">
-                <h1>{pokeDetail.name}</h1>
+                <h1
+                  style={{
+                    backgroundColor: typeColors[pokeDetail.name],
+                  }}
+                >
+                  {pokeDetail.name}
+                </h1>
               </div>
             </div>
           </Link>

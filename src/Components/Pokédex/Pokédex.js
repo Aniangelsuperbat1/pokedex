@@ -107,10 +107,7 @@ const Pokédex = () => {
           onChange={handleChange}
         />
       </div>
-      {display && <button onClick={clear}>Clear</button>}
-      <div className="pokeNames">
-        {displayUsers}
-        <ReactPaginate
+      <ReactPaginate
           previousLabel="prev"
           nextLabel="next"
           pageCount={pageCount}
@@ -121,6 +118,9 @@ const Pokédex = () => {
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationActive"}
         />
+      {display && <button onClick={clear}>Clear</button>}
+      <div className="pokeNames">
+        {displayUsers}
       </div>
     </section>
   );

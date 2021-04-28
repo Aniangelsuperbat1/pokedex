@@ -56,7 +56,7 @@ const PokemonDetails = ({ match }) => {
                   return <h1>{`${detail.stat.name} : ${detail.base_stat}`}</h1>;
                 })
               : ""}
-            <h1>Type:</h1> 
+            <h1>Type:</h1>
             {details.types
               ? details.types.map((type) => {
                   return (

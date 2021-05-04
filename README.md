@@ -41,4 +41,4 @@ Suggestions on improvement are always welcome! Open an issue and explain what yo
 
 ### Credits
 
-An ENORMOUS to Carlos Godoy, Michael Merlo, Esin Saribudak, Jennifer Meade,  and Riana Shahid. I could not have finished this project without them!
+An ENORMOUS thanks to Carlos Godoy, Michael Merlo, Esin Saribudak, Jennifer Meade, and Riana Shahid. I could not have finished this project without them!
